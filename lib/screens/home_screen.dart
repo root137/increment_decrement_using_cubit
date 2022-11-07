@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
             ),
             BlocBuilder<CounterCubit, int>(builder: (context, state) {
               return Text(
-                "$state: times.",
+                "$state times.",
                 style: TextStyle(fontSize: 22),
               );
             }),
@@ -40,6 +40,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
         child: const Icon(
           Icons.plus_one_outlined,
           size: 40,
