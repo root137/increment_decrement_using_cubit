@@ -14,40 +14,57 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         title: const Text("Counter Using Cubit"),
       ),
-      body: Container(
-        height: 400,
-        width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.only(
-          top: 300,
-          left: 10,
-        ),
-        child: Column(
-          children: [
-            Text(
-              "You have pressed this button",
-              style: TextStyle(fontSize: 18),
+      body: Column(
+        children: [
+          Container(
+            height: 400,
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.only(
+              top: 300,
+              left: 10,
             ),
-            const SizedBox(
-              height: 10,
+            child: Column(
+              children: [
+                Text(
+                  "You have pressed this button",
+                  style: TextStyle(fontSize: 18),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                BlocBuilder<CounterCubit, int>(builder: (context, state) {
+                  return Text(
+                    "$state times.",
+                    style: TextStyle(fontSize: 22),
+                  );
+                }),
+              ],
             ),
-            BlocBuilder<CounterCubit, int>(builder: (context, state) {
-              return Text(
-                "$state times.",
-                style: TextStyle(fontSize: 22),
-              );
-            }),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
-        child: const Icon(
-          Icons.plus_one_outlined,
-          size: 40,
-        ),
-        onPressed: () {
-          context.read<CounterCubit>().increment();
-        },
+          ),
+          FloatingActionButton(
+            backgroundColor: Colors.green,
+            child: const Icon(
+              Icons.plus_one_outlined,
+              size: 40,
+            ),
+            onPressed: () {
+              context.read<CounterCubit>().increment();
+            },
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          FloatingActionButton(
+            backgroundColor: Colors.red,
+            child: Icon(
+              Icons.exposure_minus_1_outlined,
+              size: 40,
+            ),
+            onPressed: () {
+              context.read<CounterCubit>().decrement();
+            },
+          ),
+        ],
       ),
     );
   }
