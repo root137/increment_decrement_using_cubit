@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text(
+                const Text(
                   "You have pressed this button",
                   style: TextStyle(fontSize: 18),
                 ),
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                 BlocBuilder<CounterCubit, int>(builder: (context, state) {
                   return Text(
                     "$state times.",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
@@ -52,6 +52,18 @@ class HomePage extends StatelessWidget {
             ),
             onPressed: () {
               context.read<CounterCubit>().increment();
+            },
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          FloatingActionButton(
+            child: const Icon(
+              Icons.exposure_zero,
+              size: 40,
+            ),
+            onPressed: () {
+              context.read<CounterCubit>().reset();
             },
           ),
           const SizedBox(

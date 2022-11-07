@@ -12,4 +12,9 @@ class CounterCubit extends Cubit<int> {
     final updatedValue = state - 1;
     emit(updatedValue);
   }
+
+  void reset() {
+    const resetValue = 0;
+    emit(resetValue);
+  }
 }

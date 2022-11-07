@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:state_management_bloc_cubit/screens/home_screen.dart';
+import 'package:state_management_bloc_cubit/screens/counter_screen.dart';
 
 import 'cubit/counter_cubit.dart';
 
